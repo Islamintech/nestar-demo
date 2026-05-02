@@ -1,10 +1,20 @@
 import { Logout } from '@mui/icons-material';
 import { Box, Link, Menu, MenuItem, Stack } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 const Top = () => {
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 40);
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
+
 	return (
 		<Stack className={'navbar'}>
-			<Stack className={'navbar-main'}>
+			<Stack className={`navbar-main${scrolled ? ' scrolled' : ''}`}>
 				<Stack className={'container'}>
 					<Box component={'div'} className={'logo-box'}>
 						<Link href={'/'}>

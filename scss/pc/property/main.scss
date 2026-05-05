@@ -1,6 +1,8 @@
 /** IMPORTS **/
 @use '../homepage/homepage.scss' as *;
 @use '../../variables.scss' as *;
+@use '../property/detail.scss' as *;
+@use '../property/property.scss' as *;
 
 #pc-wrap {
 	#top {
@@ -17,7 +19,10 @@
 				align-items: center;
 				border-top: 1px solid rgba(255, 255, 255, 0.07);
 				background-color: transparent;
-				transition: background-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+				transition:
+					background-color 0.25s ease,
+					box-shadow 0.25s ease,
+					backdrop-filter 0.25s ease;
 
 				&.scrolled {
 					background-color: rgba(24, 26, 32, 0.85);

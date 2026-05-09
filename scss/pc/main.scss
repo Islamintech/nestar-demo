@@ -1,8 +1,8 @@
 /** IMPORTS **/
-@use '../homepage/homepage.scss' as *;
-@use '../../variables.scss' as *;
-@use '../property/detail.scss' as *;
-@use '../property/property.scss' as *;
+@use './homepage/homepage.scss' as *;
+@use '../variables.scss' as *;
+@use './property/detail.scss' as *;
+@use './property/property.scss' as *;
 
 #pc-wrap {
 	#top {

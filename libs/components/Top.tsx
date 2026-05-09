@@ -1,9 +1,11 @@
 import { Logout } from '@mui/icons-material';
 import { Box, Link, Menu, MenuItem, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
+import useDeviceDetect from '../hooks/useDeviceDetect';
 
 const Top = () => {
 	const [scrolled, setScrolled] = useState(false);
+	const device = useDeviceDetect();
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 40);
@@ -11,6 +13,28 @@ const Top = () => {
 		onScroll();
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
+
+	if (device == 'mobile') {
+		return (
+			<Stack className={'navbar'}>
+				<Link href={'/'}>
+					<div>Home</div>
+				</Link>
+				<Link href={'/property'}>
+					<div>Properties</div>
+				</Link>
+				<Link href={'/agent'}>
+					<div>Agents</div>
+				</Link>
+				<Link href={'/community'}>
+					<div>Community</div>
+				</Link>
+				<Link href={'/cs'}>
+					<div>CS</div>
+				</Link>
+			</Stack>
+		);
+	}
 
 	return (
 		<Stack className={'navbar'}>
@@ -32,7 +56,7 @@ const Top = () => {
 						<Link href={'/agent'}>
 							<div>Agents</div>
 						</Link>
-						<Link href={'/community?articleCategory=FREE'}>
+						<Link href={'/community'}>
 							<div>Community</div>
 						</Link>
 						<Link href={'/cs'}>
